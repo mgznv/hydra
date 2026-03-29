@@ -2,7 +2,7 @@ module LlmProxy
   module Providers
     class OpenRouterProvider < OpenAiCompatibleProvider
       def name     = "openrouter"
-      def model    = "meta-llama/llama-3.1-8b-instruct:free"
+      def model    = "minimax/minimax-m2.5:free"
       def base_url = "https://openrouter.ai/api/v1/chat/completions"
 
       private

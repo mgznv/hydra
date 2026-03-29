@@ -4,6 +4,18 @@ require "json"
 require "dotenv/load"
 require_relative "lib/llm_proxy"
 
+set :public_folder, File.join(__dir__, "public")
+
+before do
+  headers "Access-Control-Allow-Origin"  => "*",
+          "Access-Control-Allow-Methods" => "GET, POST, OPTIONS",
+          "Access-Control-Allow-Headers" => "Content-Type"
+end
+
+options "*" do
+  200
+end
+
 get "/status" do
   json({ providers: LlmProxy.pool.available })
 end

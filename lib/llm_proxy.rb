@@ -5,6 +5,7 @@ require_relative "llm_proxy/open_ai_compatible_provider"
 require_relative "llm_proxy/providers/anthropic_provider"
 require_relative "llm_proxy/providers/groq_provider"
 require_relative "llm_proxy/providers/openrouter_provider"
+require_relative "llm_proxy/providers/openai_provider"
 require_relative "llm_proxy/provider_pool"
 
 module LlmProxy
@@ -12,7 +13,8 @@ module LlmProxy
     @pool ||= ProviderPool.new([
       Providers::AnthropicProvider.new,
       Providers::GroqProvider.new,
-      Providers::OpenRouterProvider.new
+      Providers::OpenRouterProvider.new,
+      Providers::OpenAIProvider.new
     ])
   end
 end

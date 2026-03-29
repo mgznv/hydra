@@ -131,3 +131,20 @@ def self.pool
   ])
 end
 ```
+
+Si la API difiere en un solo parámetro, basta con sobreescribir ese método. Por ejemplo, Cerebras usa `max_completion_tokens` en lugar de `max_tokens`:
+
+```ruby
+class CerebrasProvider < OpenAiCompatibleProvider
+  # ...
+
+  private
+
+  def build_payload(messages, system, max_tokens, stream:)
+    all_messages = system ? [{ role: "system", content: system }] : []
+    { model: model, messages: all_messages.concat(messages), max_completion_tokens: max_tokens, stream: stream }
+  end
+end
+```
+
+El resto del sistema no se toca.

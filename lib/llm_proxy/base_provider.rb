@@ -8,12 +8,10 @@ module LlmProxy
       raise NotImplementedError, "#{self.class}#model no implementado"
     end
 
-    def chat(messages:, system: nil, max_tokens: 1024)
+    # Sin bloque → bloqueante, devuelve LlmProxy::Response
+    # Con bloque → streaming, cede fragmentos de texto al bloque
+    def chat(messages:, system: nil, max_tokens: 1024, &block)
       raise NotImplementedError, "#{self.class}#chat no implementado"
-    end
-
-    def chat_stream(messages:, system: nil, max_tokens: 1024, &block)
-      raise NotImplementedError, "#{self.class}#chat_stream no implementado"
     end
 
     def available?

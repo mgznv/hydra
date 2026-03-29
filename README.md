@@ -1,3 +1,7 @@
+![Ruby](https://img.shields.io/badge/Ruby-3.x-red?logo=ruby)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+
 # LLM Proxy
 
 Proxy HTTP que distribuye peticiones entre múltiples proveedores de LLM mediante round-robin, maximizando el uso de sus límites gratuitos.
